@@ -82,5 +82,5 @@ def csv():
             img_title = "Histogram"
     return render_template('csv.html', table=table, head=head, img=img, head_title=head_title, table_title=table_title, img_title=img_title)
 
-if __name__=="__main__":
-    app.run(debug=True, port=8000)
+# if __name__=="__main__":
+#     app.run(debug=True, port=8000)
