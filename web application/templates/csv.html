@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'base.html' %}
+
+<body class="bg-dark text-white">
+    {% include 'navbar.html' %}
+    <div class="container py-5">
+        <h1 class="mb-4">Upload CSV file</h1>
+        <div class="border rounded p-3 mb-4">
+            <form method="POST" enctype="multipart/form-data" class="d-flex align-items-center">
+                <div class="me-3">
+                    <!-- You can replace 'upload-icon.png' with the path to your upload icon -->
+                    <img src="{{ url_for('static', filename='upload.png') }}" alt="Upload Icon" width="50" height="50">
+                </div>
+                <div class="flex-grow-1 me-3">
+                    <p class="mb-0">Drag and drop file here</p>
+                    <small>Limit 200MB per file • CSV</small>
+                </div>
+                <div>
+                    <label for="formFile" class="btn btn-outline-light mb-0">Browse files</label>
+                    <input class="form-control d-none" type="file" id="formFile" name="file" accept=".csv"
+                        onchange="this.form.submit()">
+                </div>
+            </form>
+        </div>
+
+        <h2>{{ head_title }}</h2>
+        {{ head|safe }}
+
+        <h2>{{ table_title }}</h2>
+        {{ table|safe }}
+
+        {% if img %}
+        <h2>{{ img_title }}</h2>
+        <img src="{{ img }}" alt="Histogram" class="img-fluid">
+        {% endif %}
+    </div>
+</body>
+
+</html>
